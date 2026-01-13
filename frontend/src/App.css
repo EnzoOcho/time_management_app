@@ -1,0 +1,6 @@
+.app{
+    display: grid;
+    grid-template-rows: 60px auto ;
+
+
+}
