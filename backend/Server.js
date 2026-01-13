@@ -48,8 +48,8 @@ app.use("/auth", authRoutes)
 
 
 app.get("/", (req, res) => {
-  res.render("index")
-})
+  res.send("API funcionando correctamente");
+});
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB conectado"))
