@@ -1,5 +1,7 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 const useApi = () => {
-  const baseUrl = "http://localhost:5000";
+  const baseUrl = API_URL//tuki
 
   const postData = async (url, body) => {
     try {

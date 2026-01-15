@@ -6,6 +6,7 @@ import useApi from '../hooks/useApi'
 import { useNavigate } from 'react-router-dom'
 // import { jwtDecode } from "jwt-decode";
 
+const API_URL = import.meta.env.VITE_API_URL;
 
 const MainPage = () => {
 
@@ -36,7 +37,7 @@ const MainPage = () => {
 
     const logout = async () => {
         try {
-            const res = await fetch('http://localhost:5000/auth/logout', {
+            const res = await fetch(`${API_URL}/auth/logout`, {//tuki
                 method: 'POST',
                 credentials: 'include'
             })
