@@ -100,8 +100,8 @@ routes.post("/login", async (req, res) => {
 
         res.cookie("access_token", token, {
             httpOnly: true, // la cookie solo se puede acceder desde el servidor
-            secure: process.env.NODE_ENV === "production",// la cookie solo se puede acceder en https
-            sameSite: "lax", //"strict"la cookie solo se puede acceder en el mismo dominio
+            secure: true,// la cookie solo se puede acceder en https
+            sameSite: "none", //"strict"la cookie solo se puede acceder en el mismo dominio
             maxAge: 1000 * 60 * 60 * 24//el tiempo de vida de la cookie (1h)
         })
         res.json({ success: true }) ///a cambiar

@@ -6,7 +6,7 @@ import dotenv from "dotenv"; //.env
 import cors from "cors"
 
 const PORT = process.env.PORT || 5000
-
+app.options("*", cors());
 import authRoutes from "./routes/routes.js"
 
 dotenv.config();
@@ -14,10 +14,24 @@ dotenv.config();
 const app = express()
 
 app.use(cors({
-  origin: ["http://localhost:5173",
-    "https://time-management-app-three.vercel.app"
-  ],
-  credentials: true
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+
+    const allowedOrigins = [
+      "http://localhost:5173",
+    ];
+
+    // permitir cualquier subdominio de vercel.app
+    if (
+      allowedOrigins.includes(origin) ||
+      origin.endsWith(".vercel.app")
+    ) {
+      return callback(null, true);
+    }
+
+    return callback(new Error("Not allowed by CORS"));
+  },
+  credentials: true,
 }));
 
 app.use(express.json())
