@@ -1,11 +1,13 @@
 const API_URL = import.meta.env.VITE_API_URL;
 
 const useApi = () => {
-  const baseUrl = API_URL//tuki
+
+
+  console.log("API_URL:", API_URL);
 
   const postData = async (url, body) => {
     try {
-      const res = await fetch(baseUrl + url, {
+      const res = await fetch(API_URL + url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,7 +26,7 @@ const useApi = () => {
 
 const getUserData = async (url) => {
   try {
-    const res = await fetch(baseUrl + url, {
+    const res = await fetch(API_URL + url, {
       credentials: "include"
     });
 
@@ -40,7 +42,7 @@ const getUserData = async (url) => {
 };
 
 const patchUserData = async (newData) => {
-    const res = await fetch(`${baseUrl}/auth/me`, {
+    const res = await fetch(`${API_URL}/auth/me`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
