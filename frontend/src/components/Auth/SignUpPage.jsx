@@ -1,7 +1,7 @@
 import React from 'react'
 import "./LoginPage.css"
 import { useState } from "react";
-import useApi from "../hooks/useApi.js";
+import useApi from "../Hooks/useApi.js";
 import {useNavigate} from "react-router-dom"
 
 const SignUpPage = () => {

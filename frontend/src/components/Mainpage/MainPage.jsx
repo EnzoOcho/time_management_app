@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./MainPage.css"
 import GraphSection from './GraphSection'
 import Cronometro from './Cronometro'
-import useApi from '../hooks/useApi'
+import useApi from '../Hooks/useApi'
 import { useNavigate } from 'react-router-dom'
 // import { jwtDecode } from "jwt-decode";
 
