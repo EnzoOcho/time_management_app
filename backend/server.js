@@ -15,25 +15,21 @@ const PORT = process.env.PORT || 5000;
    CORS CONFIG
 ======================= */
 
+const allowedOrigins = [
+  'https://time-management-app-zeta.vercel.app',
+  'http://localhost:3000', // para desarrollo local
+  'http://localhost:5173'  // si usas Vite
+];
+
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin) return callback(null, true);
-
-    const allowedOrigins = [
-      "http://localhost:5173",
-      "https://time-management-app-zeta.vercel.app"
-    ];
-
-    if (
-      allowedOrigins.includes(origin) ||
-      origin.endsWith(".vercel.app")
-    ) {
-      return callback(null, true);
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
     }
-
-    return callback(new Error("Not allowed by CORS"));
   },
-  credentials: true,
+  credentials: true
 }));
 
 // PRE-FLIGHT (OBLIGATORIO)
