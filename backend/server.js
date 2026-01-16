@@ -21,6 +21,7 @@ app.use(cors({
 
     const allowedOrigins = [
       "http://localhost:5173",
+      "https://time-management-app-zeta.vercel.app"
     ];
 
     if (
