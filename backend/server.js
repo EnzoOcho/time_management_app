@@ -14,6 +14,8 @@ const PORT = process.env.PORT || 5000;
 /* =======================
    CORS CONFIG
 ======================= */
+// PRE-FLIGHT (OBLIGATORIO)
+app.options("*", cors());
 
 const allowedOrigins = [
   'https://time-management-app-zeta.vercel.app',
@@ -32,8 +34,7 @@ app.use(cors({
   credentials: true
 }));
 
-// PRE-FLIGHT (OBLIGATORIO)
-app.options("*", cors());
+
 
 /* =======================
    MIDDLEWARES
