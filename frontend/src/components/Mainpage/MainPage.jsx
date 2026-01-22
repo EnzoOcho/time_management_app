@@ -16,21 +16,8 @@ const MainPage = () => {
 
     const [data, setData] = useState([])
 
-    const today = () => {
-        let fechaa = new Date()
-        let dia = fechaa.getDate()
-        const mes = fechaa.getMonth() + 1;
-        let año = fechaa.getFullYear()
 
-        let fechaCompleta = `${dia}/${mes}/${año}`
-        console.log(fechaa)
-        console.log(dia)
-        console.log(año)
-        console.log(mes)
-        console.log(fechaCompleta)
-    }
-
-    const showdata = () => {
+    const showdata = () => {//cambiar
         console.log(userData)
         console.log(data)
     }
@@ -58,7 +45,7 @@ const MainPage = () => {
         getUserData("/auth/getDatos").then(user => {
             setUserData(user)
             setData(user.data)
-            console.log("USUARIO:", user)
+            console.log("USUARIO:", user)//cambiar
         })
     }, [])
 

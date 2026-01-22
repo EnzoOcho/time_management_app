@@ -32,36 +32,7 @@ routes.post("/register", async (req, res) => {
             nombre,
             email,
             password: hash,
-            data: [
-                {
-                    name: 'Domingo',
-                    horas: 2,
-                },
-                {
-                    name: 'Lunes',
-                    horas: 4,
-                },
-                {
-                    name: 'Martes',
-                    horas: 6,
-                },
-                {
-                    name: 'Miercoles',
-                    horas: 8,
-                },
-                {
-                    name: 'Jueves',
-                    horas: 10,
-                },
-                {
-                    name: 'Viernes',
-                    horas: 12,
-                },
-                {
-                    name: 'Sabado',
-                    horas: 14,
-                }
-            ]
+            data: []
         });
 
         res.json({ message: "Usuario creado", user: newUser });
