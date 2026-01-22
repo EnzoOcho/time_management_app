@@ -7,10 +7,7 @@ import { auth } from "../middleweare/auth.js";
 
 const routes = express.Router()
 
-
-
 routes.post("/register", async (req, res) => {
-    console.log(req.body)
 
     try {
         const { nombre, email, password } = req.body;
@@ -63,7 +60,7 @@ routes.post("/login", async (req, res) => {
 
         // Crear token JWT
         const token = jwt.sign(
-            { id: user._id, email: user.email, nombre: user.nombre, data: user.data },
+            { id: user._id, email: user.email, nombre: user.nombre},
             process.env.JWT_SECRET,
             { expiresIn: "1d" } // dura 1 día
         );

@@ -45,7 +45,7 @@ const MainPage = () => {
         getUserData("/auth/getDatos").then(user => {
             setUserData(user)
             setData(user.data)
-            console.log("USUARIO:", user)//cambiar
+
         })
     }, [])
 

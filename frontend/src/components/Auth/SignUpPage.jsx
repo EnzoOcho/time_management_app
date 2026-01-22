@@ -2,7 +2,7 @@ import React from 'react'
 import "./LoginPage.css"
 import { useState } from "react";
 import useApi from "../Hooks/useApi.js";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const SignUpPage = () => {
 
@@ -14,19 +14,16 @@ const SignUpPage = () => {
   const [password, setPassword] = useState("");
 
   const handleSignIn = async (e) => {
-        e.preventDefault();
-    console.log({nombre, email, password})
-         const res = await postData("/auth/register", {nombre, email, password });
+    e.preventDefault();
 
-         console.log(res)
+    await postData("/auth/register", { nombre, email, password });
+    await postData("/auth/login", { email, password })
+    setNombre("")
+    setEmail("")
+    setPassword("")
 
-         navigate("/mainpage")
-        // if (res?.token) {
-        //     // Guardar token en localStorage
-        //     localStorage.setItem("token", res.token);
-
-        // }
-    };
+    navigate("/mainpage")
+  };
 
   return (
     <section className="login_page">
